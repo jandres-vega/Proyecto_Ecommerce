@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/MyOrder.scss'
+import '@/styles/MyOrder.scss'
+import flecha from '@icons/flechita.svg'
 const MyOrder = () => {
     return (
         <aside className="MyOrder">
