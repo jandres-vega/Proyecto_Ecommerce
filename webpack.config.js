@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   mode: 'development',
   //se agregan alias para acceder a las carpetas de una forma mas sencilla
@@ -21,7 +21,7 @@ module.exports = {
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@icons': path.resolve(__dirname, 'src/assets/icons/'),
       '@logos': path.resolve(__dirname, 'src/assets/logos/'),
-    }
+    },
   },
   module: {
     rules: [
@@ -29,38 +29,34 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader'
-          }
-        ]
-      },
-      {
-        test: /\.(css|scss)$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
+            loader: 'html-loader',
+          },
         ],
       },
       {
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
-        type: 'asset'
-      }
-    ]
+        type: 'asset',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].css',
     }),
   ],
   /*Dentro de output agregas publicPath: ‘/’ para especificar la base de la ruta.
@@ -73,5 +69,5 @@ module.exports = {
     historyApiFallback: true,
     port: 3005,
     open: true,
-  }
-}
+  },
+};

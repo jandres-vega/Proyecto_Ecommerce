@@ -1,12 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const Layout = ({ children }) => {
-
   return (
-      <div className="Layaut">
-        {children}
-
-      </div>
+    <div className="Layaut">
+      <Header />
+      {children}
+    </div>
   );
 };
 
